@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    "use strict";
+    function PostES5 (avtor, text){
+        this.avtor = avtor;
+        this.text = text;
+        this.date = new Date();
+    }
+    const postES5 = new PostES5('Мария','text----0');
+    console.log(postES5);
+
+    PostES5.prototype.edit = function (text1){
+        this.text = text1;
+        this.date = new Date();
+    }
+    let usersText = prompt('введите текст');
+    postES5.edit(usersText);
+    console.log(postES5);
+
+    class PostES6 {
+        constructor(avtor, text) {
+            this.avtor = avtor;
+            this.text = text;
+            this.date = new Date();
+        }
+        edit(text1) {
+            this.text = text1;
+            this.date = new Date();
+        }
+    }
+    const postES6 = new PostES6('Мария','text----0');
+    console.log(postES6);
+    let usersText1 = prompt('введите текст');
+    postES6.edit(usersText1);
+    console.log(postES6);
+
+
+    function AttachedPostES5(avtor, text) {
+        PostES5.call(this, avtor, text);
+        this.highlighted = false;
+    }
+
+    AttachedPostES5.prototype = Object.create(PostES5.prototype);
+    AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+    AttachedPostES5.prototype.makeTextHighlighted = function() {
+        this.highlighted = true;
+        this.updatedAt = new Date();
+    };
+
+    const attachedES5 = new AttachedPostES5('Мария', 'Текст');
+    console.log(attachedES5);
+    attachedES5.makeTextHighlighted();
+    attachedES5.edit('Новый текст поста');
+    console.log(attachedES5);
+
+
+    class AttachedPostES6 extends PostES6 {
+        highlighted = false;
+
+        makeTextHighlighted() {
+            this.highlighted = true;
+            this.date = new Date();
+        }
+    }
+
+    const attachedPostES6 = new AttachedPostES6('Мария', 'Текст');
+    console.log(attachedPostES6);
+    attachedPostES6.makeTextHighlighted();
+    attachedPostES6.edit('Новый текст');
+    console.log(attachedPostES6);
+</script>
+</body>
+</html>
