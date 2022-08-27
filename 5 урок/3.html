@@ -100,10 +100,9 @@
   Необходимо использовать делегирование.
    */
   document.querySelector('ul').addEventListener('click', event => {
-    if (event.target.tagName !== "BUTTON") {
-      return;
+    if (event.target.tagName === "BUTTON") {
+      console.log(event.target.textContent);
     }
-    console.log(event.target.textContent);
   });
 
   /*
@@ -112,6 +111,7 @@
   Ответ необходимо написать здесь же, под этим комментарием, своими словами.
   */
 
+  //Предположу, что в 5 задании мы слушаем только элементы ul, а в 3 задании все элементы. Следовательно на милисекунды обработка может происходить быстрее.
 
   /*
   7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li.
