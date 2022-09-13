@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо реализовать четыре функции, каждая функция должна принимать по два
+числа и выполнять одну из операций (каждая функция выполняет одну из них):
+1. Сложение
+2. Разность
+3. Умножение
+4. Деление
+
+Необходимо сделать так, чтобы функция вернула число, например выражение
+`console.log(sum(2, 6));` должно вывести число 8 в консоль (sum - функция
+сложения в данном примере, ваши названия функций могут отличаться).
+
+Округлять значения, которые возвращают функции не нужно, однако, обратите
+внимание на разность, функция должна вычесть из большего числа меньшее, либо
+вернуть 0, если числа равны.
+
+Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
+не нужно.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+
+    "use strict";
+
+    /**
+     * считаем сумму аргументов a и  b
+     * @param {number} a первое число
+     * @param {number} b  второе число
+     * @returns {number}   сумма чисел
+     **/
+    const a = 2;
+    const b = 9;
+
+    function sum(a, b) {
+        return a + b;
+    }
+    console.log (sum(a, b));
+
+    /**
+    * считаем разницу аргументов a и b (вычитание)
+    * @param {number} a  первое число
+    * @param {number} b   второе число
+    * @returns {number}   разница чисел (вычитание)
+     **/
+    function subtraction (a, b) {
+        if (a > b) {
+            return a - b;
+        }
+        else if(b > a) {
+            return b - a;
+        }
+        else {
+            return 0;
+        }
+    }
+    console.log(subtraction(a, b));
+
+    /**
+  * считаем умножение аргументов a и b
+  * @param {number} a  первое число
+  * @param {number} b   второе число
+  * @returns {number}   умножение чисел
+   **/
+    function multiplication (a, b) {
+        return a * b;
+    }
+    console.log (multiplication(a, b));
+
+
+    /**
+    * считаем деление аргументов a и b
+    * @param {number} a  первое число
+    * @param {number} b   второе число
+    * @returns {number}   деление чисел
+     **/
+
+    function division (a, b) {
+        return a / b;
+    }
+    console.log (division(a, b));
+
+</script>
+
+</body>
+</html>

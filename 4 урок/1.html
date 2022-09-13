@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
+-->
+<script>
+    "use strict";
+    function ProductES5(height, price, material) {
+        this.height = height;
+        this.price = price;
+        this.material = material;
+    }
+    const stakanchik = new ProductES5(150,300,'glass');
+    console.log(`высота: ${stakanchik.height}, цена:${stakanchik.price}, материал:${stakanchik.material}`)
+
+    ProductES5.prototype.make25Discount = function (){
+        this.price = this.price*0.75;
+        this.name = 'Новогодний стаканчик';
+    }
+    stakanchik.make25Discount();
+    console.log(`высота: ${stakanchik.height}, цена:${stakanchik.price}, материал:${stakanchik.material}, название:${stakanchik.name}`)
+
+
+    class ProductES6 {
+        constructor(height, price, material) {
+            this.height = height;
+            this.price = price;
+            this.material = material;
+        }
+        make25Discount() {
+            this.price = this.price*0.75;
+            this.name = 'Новогодний стаканчик';
+        }
+    }
+
+    const stakanchik1 = new ProductES6(150,300,'glass');
+    console.log(`высота: ${stakanchik1.height}, цена:${stakanchik1.price}, материал:${stakanchik1.material}`);
+    stakanchik1.make25Discount();
+    console.log(`высота: ${stakanchik1.height}, цена:${stakanchik1.price}, материал:${stakanchik1.material}, название:${stakanchik1.name}`);
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    "use strict";
+    /**
+     * Функция разбивает число по разрядам и возвращает объект с записанными
+     * разрядами числа.
+     * @param {number} num - Число в диапазоне [0, 999], которое разобьется на
+     * разряды.
+     * @returns {object} Объект с разрядами числа или пустой объект в случае
+     * ошибки.
+     */
+    function getDigitsOfNumber(num) {
+        if (!Number.isInteger(num) || num < 0 || num > 999) {
+            console.error('Wrong argument, it must be an integer in range [0, 999].');
+            return {};
+        }
+
+        return {
+            units: num % 10,
+            dozens: Math.floor(num / 10) % 10,
+            hundreds: Math.floor(num / 100),
+        };
+    }
+
+    console.log(getDigitsOfNumber(123));
+
+</script>
+
+</body>
+</html>
